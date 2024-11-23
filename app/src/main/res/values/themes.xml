@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.MudisEmployee" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+    <style name="Theme.MudisEmployee" parent="Base.Theme.MudisEmployee" />
+
+    <style name="EditTextStyle" parent="Base.Theme.MudisEmployee">
+        <item name="android:lines">1</item>
+        <item name="maxLines">1</item>
+        <item name="android:maxLength">24</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+    </style>
+    <style name="DrawerTextAppearance" parent="Base.Theme.MudisEmployee">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="EditTextStyleMenu" parent="Base.Theme.MudisEmployee">
+        <item name="android:lines">1</item>
+        <item name="maxLines">1</item>
+        <item name="android:maxLength">24</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingVertical">10dp</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+</resources>

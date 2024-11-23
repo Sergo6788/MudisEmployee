@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MudisEmployee</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_order_now"><![CDATA[Sign In & order now!]]></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="no_account">No account?</string>
+    <string name="signup">Sign Up</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="have_account">Have account?</string>
+    <string name="sign_up_order_now"><![CDATA[Sign up & get your food!]]></string>
+    <string name="bad_internet_connection_please_try_again_later">Bad internet connection, please try again later</string>
+    <string name="password_length_must_be_more_than_6_characters_and_without_space">Password length must be more than 6 characters and without space</string>
+    <string name="email_incorrect">Email Incorrect</string>
+    <string name="food_menu">Food Menu</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="exit">Exit Account</string>
+    <string name="search">Search</string>
+    <string name="price">Price:</string>
+    <string name="_0_0">0.0₪</string>
+    <string name="to_cart">To Cart</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="my_cart">My Cart</string>
+    <string name="total_price">Total Price:</string>
+</resources>
