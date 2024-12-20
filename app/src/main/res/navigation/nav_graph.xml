@@ -9,7 +9,17 @@
         android:id="@+id/mainFragment"
         android:name="com.example.mudisemployee.fragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_changesFragment2"
+            app:destination="@id/changesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_historyFragment2"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_salesFragment2"
+            app:destination="@id/salesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.mudisemployee.fragment.LoginFragment"
@@ -34,6 +44,64 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/changesFragment"
+        android:name="com.example.mudisemployee.fragment.ChangesFragment"
+        android:label="fragment_changes"
+        tools:layout="@layout/fragment_changes" >
+        <action
+            android:id="@+id/action_changesFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_changesFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_changesFragment_to_salesFragment"
+            app:destination="@id/salesFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.mudisemployee.fragment.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_historyFragment_to_salesFragment"
+            app:destination="@id/salesFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/salesFragment"
+        android:name="com.example.mudisemployee.fragment.SalesFragment"
+        android:label="fragment_sales"
+        tools:layout="@layout/fragment_sales" >
+        <action
+            android:id="@+id/action_salesFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_salesFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_salesFragment_to_changesFragment"
+            app:destination="@id/changesFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
     </fragment>

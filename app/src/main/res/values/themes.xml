@@ -3,6 +3,7 @@
     <style name="Base.Theme.MudisEmployee" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/window_bg</item>
 
     </style>
 
@@ -35,5 +36,23 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/white</item>
         <item name="cornerRadius">8dp</item>
+    </style>
+    <style name="TitleText" parent="Base.Theme.MudisEmployee">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="DishEditTextStyle" parent="Base.Theme.MudisEmployee">
+        <item name="android:background">@drawable/cost_edit_text_background</item>
+        <item name="android:paddingVertical">12dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+    <style name="SubTitleText" parent="TitleText">
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>

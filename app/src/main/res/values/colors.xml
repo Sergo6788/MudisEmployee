@@ -7,4 +7,14 @@
     <color name="hint_color">#88000000</color>
     <color name="card_background_color">#88CECECE</color>
     <color name="grey">#ECECEC</color>
+    <color name="window_bg">#F5F5F5</color>
+    <color name="green">#00BFA2</color>
+    <color name="red">#F00</color>
+    <color name="true_green">#0F0</color>
+    <color name="yellow_true">#FF0</color>
+    <color name="seek_start_progress_color">#33000000</color>
+    <color name="seek_center_progress_color">#11000000</color>
+    <color name="seek_end_progress_color">#11000000</color>
+    <color name="alternative">#FFFF4B21</color>
+    <color name="thumb_stroke_color">#99FFFFFF</color>
 </resources>

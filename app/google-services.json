@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1096835138452",
+    "project_id": "mudisapp",
+    "storage_bucket": "mudisapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096835138452:android:50909decfce26675d14581",
+        "android_client_info": {
+          "package_name": "com.example.mudisapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtsR3_WV4O-Ji2HUnncbFzhaBnPTIANzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096835138452:android:43cd64e0aefe60e8d14581",
+        "android_client_info": {
+          "package_name": "com.example.mudisemployee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtsR3_WV4O-Ji2HUnncbFzhaBnPTIANzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

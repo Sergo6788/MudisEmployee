@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.DishFragment"
+    android:padding="24dp">
+
+    <TextView
+        android:theme="@style/TitleText"
+        android:id="@+id/tvAddDish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_dish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvPic"
+        android:text="@string/picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddDish"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"/>
+    <TextView
+        android:id="@+id/tvName"
+        android:text="@string/name"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etPicture"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"/>
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"
+        android:text="@string/type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/etType"
+        app:layout_constraintTop_toTopOf="@+id/etType"/>
+
+    <EditText
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etPicture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPic" />
+
+    <EditText
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+
+    <TextView
+        android:layout_marginTop="16dp"
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etType"
+        android:text="SNACKS"
+        android:textSize="20sp"
+        android:paddingVertical="12dp"
+        android:textStyle="bold"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <TextView
+        android:id="@+id/costText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cost"
+
+        android:theme="@style/SubTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/costEditText"
+        app:layout_constraintBottom_toBottomOf="@id/costEditText"
+
+         />
+
+    <EditText
+        android:id="@+id/costEditText"
+        android:layout_width="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cost_edit_text_background"
+        android:digits="@string/numbers"
+        android:elevation="4dp"
+        android:inputType="number"
+        android:layout_marginVertical="24dp"
+        android:lines="1"
+        android:maxLength="5"
+        android:paddingVertical="5dp"
+        android:text="0"
+        app:layout_constraintTop_toBottomOf="@+id/etType"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        />
+    <SeekBar
+        android:id="@+id/costBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="50"
+        android:min="1"
+        android:progress="1"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:splitTrack="false"
+        android:thumb="@drawable/custom_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/costEditText" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/btSignInCardView"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/main_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/main_color"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
