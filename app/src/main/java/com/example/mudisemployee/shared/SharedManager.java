@@ -33,7 +33,7 @@ public class SharedManager {
             listArchive.add(0,order);
         }
         else
-            listArchive.removeIf(m -> Objects.equals(m.getNumber(), order.getNumber()));
+            listArchive.removeIf(m -> Objects.equals(m.getId(), order.getId()));
         sharedPreferences.edit().putString("listArchive", gson.toJson(listArchive)).apply();
     }
 

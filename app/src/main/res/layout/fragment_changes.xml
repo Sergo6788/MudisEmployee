@@ -1,65 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ChangesFragment"
-    android:weightSum="3"
-    android:orientation="vertical">
-    <FrameLayout
-        android:id="@+id/addLayout"
+    android:padding="24dp">
+    <TextView
+        android:id="@+id/tvDishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dishes"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <ImageView
+        android:id="@+id/ivAdd"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/baseline_add_24"
+        app:tint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDishes"
+        android:fadingEdgeLength="12dp"
+        android:requiresFadingEdge="vertical"
+        android:layout_marginVertical="8dp"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/true_green">
-        <TextView
-            android:id="@+id/tvAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:text="@string/add"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/updateLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/yellow_true">
-        <TextView
-            android:id="@+id/tvUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:text="@string/update"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/deleteLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/red">
-        <TextView
-            android:id="@+id/tvDelete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:text="@string/delete"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
-    </FrameLayout>
-
-
-
-
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDishes"
+        />
+    <ProgressBar
+        android:id="@+id/pbLoad"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:theme="@style/ProgressBarStyle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDishes"
+        />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

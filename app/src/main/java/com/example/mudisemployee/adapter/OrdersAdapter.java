@@ -1,6 +1,7 @@
 package com.example.mudisemployee.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mudisemployee.R;
 import com.example.mudisemployee.databinding.RvOrderBinding;
+import com.example.mudisemployee.model.MenuModel;
 import com.example.mudisemployee.model.OrderModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder> {
@@ -54,27 +60,33 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
     }
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public RvOrderBinding binding;
+        private final SimpleDateFormat timeFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());
 
         public ViewHolder(RvOrderBinding binding){
             super(binding.getRoot());
             this.binding = binding;
         }
-        public void bind(OrderModel order, Context context){
+        public void bind(OrderModel order, Context context)  {
             Glide.with(binding.image)
-                    .load(order.getImage())
+                    .load(order.getOrderMenu().get(0).getImage())
                     .into(binding.image);
-            binding.tvPayment.setText(order.getPayment());
-            binding.tvMealsList.setText(arrToStr(order.getMeals()));
-            binding.tvNumber.setText(order.getNumber().toString());
-            binding.tvTime.setText(order.getTime());
-            if(order.getLate()){
-                binding.tvPayment.setTextColor(context.getResources().getColor(R.color.main_color));
-                binding.getRoot().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.late_process_order_bg));
-                binding.tvStatus.setText(new StringBuilder().append(context.getString(R.string.status)).append(" ").append(context.getString(R.string.late)).toString());
+            binding.tvPayment.setText(order.getPaymentMethod());
+            binding.tvMealsList.setText(arrToStr(order.getOrderMenu().stream().map(MenuModel::getName).toList()));
+            binding.tvNumber.setText("№" + order.getId().toString());
+            binding.tvTime.setText(order.getOrderDate());
+            try{
+                if(timeFormat.parse(order.getOrderDate()).before(new Date())){
+                    binding.tvPayment.setTextColor(context.getResources().getColor(R.color.main_color));
+                    binding.getRoot().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.late_process_order_bg));
+                    binding.tvStatus.setText(new StringBuilder().append(context.getString(R.string.status)).append(" ").append(context.getString(R.string.late)).toString());
+                }
+                else{
+                    binding.tvStatus.setText(new StringBuilder().append(context.getString(R.string.status)).append(" ").append(context.getString(R.string.in_process)).toString());
+                }
+            }catch (ParseException exception){
+                Log.d("Error", exception.getMessage());
             }
-            else{
-                binding.tvStatus.setText(new StringBuilder().append(context.getString(R.string.status)).append(" ").append(context.getString(R.string.in_process)).toString());
-            }
+
 
         }
         private String arrToStr(List<String> list){

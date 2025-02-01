@@ -6,45 +6,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderModel {
-    private String image;
-    private String time;
-    private String payment;
-    private Integer number;
-    private List<String> meals;
-    private Boolean isLate;
+    private int totalAmount;
+    private List<MenuModel> orderMenu;
+    private String orderDate;
+    private String orderStatus;
+    private String paymentMethod;
+    private String id;
+    private String uid;
 
-    public OrderModel(String image, String time, String payment, Integer number, List<String> meals, Boolean isLate){
-        this.image = image;
-        this.time = time;
-        this.meals = meals;
-        this.number = number;
-        this.payment = payment;
-        this.isLate = isLate;
+    public OrderModel(List<MenuModel> orderMenu, String orderDate, String paymentMethod, String uid, String orderStatus){
+        orderMenu.forEach(menuModel -> {
+            totalAmount += menuModel.getPrice();
+        });
+        this.orderMenu = orderMenu;
+        this.orderDate = orderDate;
+        this.orderStatus = orderStatus;
+        this.paymentMethod = paymentMethod;
+        this.uid = uid;
+    }
+    public OrderModel(){
     }
 
 
-    public String getImage() {
-        return image;
+    public List<MenuModel> getOrderMenu() {
+        return orderMenu;
     }
 
-    public String getTime() {
-        return time;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public String getPayment() {
-        return payment;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public Integer getNumber() {
-        return number;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-
-    public List<String> getMeals() {
-        return meals;
+    public int getTotalAmount() {
+        return totalAmount;
     }
 
-    public Boolean getLate() {
-        return isLate;
+    public String getUid() {
+        return uid;
     }
+
+    public String getId() {
+        return id;
+    }
+    public void setId(String id){this.id = id;}
+
+    public void setStatus(String status){
+        this.orderStatus = status;
+    }
+
 }
+

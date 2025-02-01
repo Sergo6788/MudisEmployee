@@ -49,4 +49,9 @@
     <string name="picture">Picture</string>
     <string name="name">Name</string>
     <string name="confirm">Confirm</string>
+    <string name="empty_data">No text detected!</string>
+    <string name="update_dish">Update Dish</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="is_ready">Is Ready</string>
+    <string name="dishes">Dishes</string>
 </resources>

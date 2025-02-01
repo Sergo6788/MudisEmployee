@@ -67,7 +67,7 @@
         android:layout_marginTop="16dp"
         style="@style/DishEditTextStyle"
         android:id="@+id/etType"
-        android:text="SNACKS"
+        android:text="SNACK"
         android:textSize="20sp"
         android:paddingVertical="12dp"
         android:textStyle="bold"
@@ -123,7 +123,6 @@
         app:layout_constraintTop_toBottomOf="@+id/costEditText" />
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:id="@+id/btSignInCardView"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
@@ -136,7 +135,7 @@
         >
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btSignIn"
+            android:id="@+id/btConfirm"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/main_color"
@@ -145,6 +144,19 @@
             android:textSize="24sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
+    <CheckBox
+        android:id="@+id/checkboxIsReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/is_ready"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:checked="true"
+        android:visibility="gone"
+        style="@style/CheckBoxStyle"
+        app:layout_constraintTop_toBottomOf="@+id/costBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
