@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +14,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.PopupMenu;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -101,6 +103,7 @@ public class DishFragment extends Fragment implements TextWatcher {
             } else {
                 Toast.makeText(requireContext(), requireContext().getResources().getString(R.string.empty_data), Toast.LENGTH_SHORT).show();
             }
+            Navigation.findNavController(v).popBackStack();
 
         });
         binding.costBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -124,6 +127,12 @@ public class DishFragment extends Fragment implements TextWatcher {
         binding.etType.setOnClickListener(v ->{
            openMealPopup();
         });
+        binding.checkboxIsReady.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                menuModel.setReady(b);
+            }
+        });
     }
     private void openMealPopup(){
         Context wrapper = new ContextThemeWrapper(requireContext(),R.style.PopupStyle);
@@ -140,6 +149,7 @@ public class DishFragment extends Fragment implements TextWatcher {
 
         if (isUpdate) {
             firestore.collection("Dishes").document(menuModel.getId()).set(menuModel);
+            System.out.println(menuModel);
         } else {
             AtomicInteger n = new AtomicInteger(1);
             firestore.collection("Dishes").get()
@@ -176,7 +186,7 @@ public class DishFragment extends Fragment implements TextWatcher {
         firestore.collection("Dishes").document(id).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     menuModel = documentSnapshot.toObject(MenuModel.class);
-                    menuModel.setId(documentSnapshot.getId());
+                    menuModel.setId(id);
                     setUpView();
                 });
     }

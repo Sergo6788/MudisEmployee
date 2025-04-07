@@ -54,4 +54,6 @@
     <string name="no_connection">No Internet Connection</string>
     <string name="is_ready">Is Ready</string>
     <string name="dishes">Dishes</string>
+    <string name="stop_list">Stop list</string>
+    <string name="sales">Sales</string>
 </resources>

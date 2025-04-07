@@ -54,11 +54,11 @@ public class MainFragment extends Fragment implements OrdersAdapter.OnClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        applyClick();
         setUpObservers();
         firebaseDataBase.getOrders();
         startDataChecking();
     }
+    //обрабатывает клик на заказ, открывает ордер фрагмент, очищает список заказов после клика локально
     @Override
     public void click(OrderModel order) {
         Bundle bundle = new Bundle();
@@ -72,14 +72,12 @@ public class MainFragment extends Fragment implements OrdersAdapter.OnClickListe
     }
 
 
-    private void applyClick(){
-
-    }
+//присваивает лэйаут менеджер и адаптер  для списка заказов
     private void setAdapter(){
         binding.rvOrders.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvOrders.setAdapter(new OrdersAdapter(firebaseDataBase.orders,requireContext(),this));
     }
-
+//запускает часы
     private void startDataChecking(){
         handler.postDelayed(new Runnable() {
             @Override
@@ -90,6 +88,7 @@ public class MainFragment extends Fragment implements OrdersAdapter.OnClickListe
             }
         },0);
     }
+    //останавливает часы
     private void endDataChecking(){
         handler.removeCallbacksAndMessages(null);
     }
@@ -99,6 +98,7 @@ public class MainFragment extends Fragment implements OrdersAdapter.OnClickListe
         super.onDestroyView();
         endDataChecking();
     }
+    //подписывается на изменения готовности задачи получения заказов
     private void setUpObservers(){
         firebaseDataBase.isTaskReady.observe(getViewLifecycleOwner(),data->{
             if (data) {

@@ -110,6 +110,9 @@
             app:destination="@id/changesFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_salesFragment_to_editBannerFragment"
+            app:destination="@id/editBannerFragment" />
     </fragment>
     <fragment
         android:id="@+id/dishFragment"
@@ -127,4 +130,9 @@
             android:id="@+id/action_orderFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editBannerFragment"
+        android:name="com.example.mudisemployee.fragment.EditBannerFragment"
+        android:label="fragment_edit_banner"
+        tools:layout="@layout/fragment_edit_banner" />
 </navigation>

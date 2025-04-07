@@ -5,10 +5,12 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mudisemployee.model.BannerModel;
 import com.example.mudisemployee.model.MenuModel;
 import com.example.mudisemployee.model.OrderModel;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ public class FirebaseRepository extends ViewModel {
     public HashMap<String, String> dishInfo = new HashMap<>();
     public ArrayList<OrderModel> orders = new ArrayList<>();
     private ArrayList<MenuModel> menuList = new ArrayList<>();
+    private ArrayList<BannerModel> banner = new ArrayList<>();
 
     public void getDishes(List<String> list) {
         firestore.collection("Dishes").get()
@@ -69,8 +72,29 @@ public class FirebaseRepository extends ViewModel {
                     Log.d("ERROR", error.getMessage());
                 });
     }
+    public void getBannersFromFirebase(){
+        banner.clear();
+        firestore.collection("Discounts").get()
+                .addOnSuccessListener(task -> {
+                    for (DocumentSnapshot documentSnapshot : task.getDocuments()) {
+                        BannerModel data = documentSnapshot.toObject(BannerModel.class);
+                        data.setId(documentSnapshot.getId());
+                        banner.add(data);
+                    }
+                    isTaskReady.setValue(true);
+                })
+                .addOnFailureListener(error -> {
+                    Log.d("ERROR", error.getMessage());
+                });
+    }
+
     public ArrayList<MenuModel> getMenuList() {
         isTaskReady.setValue(false);
         return menuList;
     }
+
+    public ArrayList<BannerModel> getBanner() {
+        return banner;
+    }
+
 }

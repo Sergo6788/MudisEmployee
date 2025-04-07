@@ -46,7 +46,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             PopupMenu popup = new PopupMenu(wrapper,holder.binding.ivMore);
             popup.inflate(R.menu.options_menu);
             popup.setOnMenuItemClickListener(l->{
-                if(l.toString().equals("UPDATE")){
+                if(l.toString().equals(context.getResources().getString(R.string.update))){
                     onClickListener.update(dishes.get(position));
                 }else onClickListener.delete(dishes.get(position));
                 return true;
@@ -75,6 +75,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     .load(menuItem.getImage())
                     .into(binding.image);
             binding.tvName.setText(menuItem.getName());
+            if(!menuItem.isReady()){
+                binding.getRoot().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.late_process_order_bg));
+            }
 
         }
 
