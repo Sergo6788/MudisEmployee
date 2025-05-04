@@ -29,7 +29,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public int getItemCount(){return dishes.size();}
+    public int getItemCount(){
+        return dishes.size();
+    }
 
     @NonNull
     @Override

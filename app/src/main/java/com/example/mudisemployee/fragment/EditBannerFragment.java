@@ -48,7 +48,7 @@ public class EditBannerFragment extends Fragment {
         if (isUpdate) {
             getBanner(getArguments().getString("BannerId", "Banner1"));
         }
-        setUpView();
+        else  setUpView();
     }
 
     private void applyClick() {
@@ -63,14 +63,23 @@ public class EditBannerFragment extends Fragment {
                 .addOnSuccessListener(documentSnapshot -> {
                     bannerModel = documentSnapshot.toObject(BannerModel.class);
                     bannerModel.setId(id);
+                    setUpView();
                 });
     }
 
     private void createBanner() {
 
         if (isUpdate) {
-            firestore.collection("Discounts").document(bannerModel.getId()).set(bannerModel);
-            Navigation.findNavController(requireView()).popBackStack();
+            String id = bannerModel.getId();
+            bannerModel = new BannerModel(binding.etPicture.getText().toString(), binding.etName.getText().toString(), binding.etDescription.getText().toString(), binding.dateEditText.getText().toString());
+            firestore.collection("Discounts").document(id).set(bannerModel)
+                    .addOnCompleteListener(task ->{
+                        if(task.isSuccessful()){
+                            Navigation.findNavController(requireView()).popBackStack();
+                        }
+                        else Toast.makeText(requireContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                    });
+
         } else {
             AtomicInteger n = new AtomicInteger(1);
             firestore.collection("Discounts").get()
@@ -92,12 +101,13 @@ public class EditBannerFragment extends Fragment {
     }
 
     private void setUpView() {
-
-        binding.tvAddDish.setText(requireContext().getResources().getString(R.string.update_banner));
         binding.etPicture.setText(bannerModel.getImage());
         binding.etName.setText(bannerModel.getTitle());
         binding.dateEditText.setText(bannerModel.getDate());
         binding.etDescription.setText(bannerModel.getDescription());
+        if(isUpdate){
+            binding.tvAddDish.setText(requireContext().getResources().getString(R.string.update_banner));
+        }
 
     }
 }
