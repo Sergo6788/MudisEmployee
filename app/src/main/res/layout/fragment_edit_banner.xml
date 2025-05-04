@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.EditBannerFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.EditBannerFragment">
+    android:padding="24dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:theme="@style/TitleText"
+        android:id="@+id/tvAddDish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvPic"
+        android:text="@string/picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddDish"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"/>
+    <TextView
+        android:id="@+id/tvName"
+        android:text="@string/name"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etPicture"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"/>
 
-</FrameLayout>
+
+
+    <EditText
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etPicture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPic" />
+
+    <EditText
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:theme="@style/SubTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/dateEditText"
+        />
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp"
+        android:background="@drawable/cost_edit_text_background"
+        android:digits="@string/date_digits"
+        android:elevation="4dp"
+        android:inputType="date"
+        android:lines="1"
+        android:maxLength="10"
+        android:paddingVertical="5dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+    <TextView
+        android:id="@+id/tvDescription"
+        android:text="@string/description"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/dateText"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        style="@style/SubTitleText"/>
+    <EditText
+        style="@style/DishEditTextStyle"
+        android:id="@+id/etDescription"
+        android:layout_width="0dp"
+        android:lines="1"
+        android:maxLength="150"
+        android:paddingHorizontal="12dp"
+        android:textAlignment="textStart"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/main_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/main_color"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

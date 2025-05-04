@@ -1,6 +1,7 @@
 package com.example.mudisemployee.shared;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.mudisemployee.model.OrderModel;
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
@@ -32,8 +33,7 @@ public class SharedManager {
         if(!isDelete){
             listArchive.add(0,order);
         }
-        else
-            listArchive.removeIf(m -> Objects.equals(m.getId(), order.getId()));
+        else listArchive.removeIf(m -> Objects.equals(m.getId(), order.getId()));
         sharedPreferences.edit().putString("listArchive", gson.toJson(listArchive)).apply();
     }
 

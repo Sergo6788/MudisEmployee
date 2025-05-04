@@ -84,7 +84,6 @@ public class OrderFragment extends Fragment {
 
     private void deleteOrder() {
 
-        App.sharedManager.saveArchive(orderModel, false);
         Navigation.findNavController(requireView()).popBackStack();
         App.actionId = -1;
         FirebaseFirestore.getInstance().collection("Orders").document(orderModel.getId())

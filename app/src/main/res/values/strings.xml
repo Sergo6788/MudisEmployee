@@ -51,9 +51,14 @@
     <string name="confirm">Confirm</string>
     <string name="empty_data">No text detected!</string>
     <string name="update_dish">Update Dish</string>
+    <string name="update_banner">Update Banner</string>
     <string name="no_connection">No Internet Connection</string>
     <string name="is_ready">Is Ready</string>
     <string name="dishes">Dishes</string>
     <string name="stop_list">Stop list</string>
     <string name="sales">Sales</string>
+    <string name="add_banner">Add Banner</string>
+    <string name="date">Date</string>
+    <string name="date_digits">0123456789.</string>
+    <string name="description">Description</string>
 </resources>

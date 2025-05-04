@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mudisemployee.R;
 import com.example.mudisemployee.adapter.OrdersAdapter;
@@ -38,8 +39,7 @@ public class HistoryFragment extends Fragment implements OrdersAdapter.OnClickLi
 
     private void setAdapter(){
 
-
-        binding.rvOrders.setLayoutManager(new LinearLayoutManager(requireContext()));
+       binding.rvOrders.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvOrders.setAdapter(new OrdersAdapter(App.sharedManager.getListArchive(),requireContext(),this));
     }
 

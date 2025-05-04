@@ -81,7 +81,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
                     .into(binding.ivPicture);
             binding.tvTitle.setText(discount.getTitle());
             binding.tvDescription.setText(discount.getDescription());
-            binding.tvDate.setText(discount.getDate().subSequence(0,discount.getDate().length()-7));
+            binding.tvDate.setText(String.format("Finish date: %s", discount.getDate()));
         }
 
     }
