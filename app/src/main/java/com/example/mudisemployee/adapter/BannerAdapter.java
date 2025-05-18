@@ -40,7 +40,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
         BannerViewBinding binding = BannerViewBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new BannerAdapter.ViewHolder(binding);
     }
-
+    //distribution all data from firebase in created views
     @Override
     public void onBindViewHolder(@NonNull BannerAdapter.ViewHolder holder, int position) {
         holder.bind(discounts.get(position));
@@ -74,7 +74,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
             super(binding.getRoot());
             this.binding = binding;
         }
-
+        //distribution data from firebase in created views
         public void bind(BannerModel discount) {
             Glide.with(binding.ivPicture)
                     .load(discount.getImage())

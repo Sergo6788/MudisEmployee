@@ -25,6 +25,7 @@ public class FirebaseRepository extends ViewModel {
     private ArrayList<MenuModel> menuList = new ArrayList<>();
     private ArrayList<BannerModel> banner = new ArrayList<>();
 
+    //get dishes from firestore
     public void getDishes(List<String> list) {
         firestore.collection("Dishes").get()
                 .addOnCompleteListener(task -> {
@@ -42,7 +43,7 @@ public class FirebaseRepository extends ViewModel {
                     isTaskReady.setValue(true);
                 });
     }
-
+    //get orders from firestore
     public void getOrders() {
         firestore.collection("Orders").get()
                 .addOnCompleteListener(task -> {
@@ -57,6 +58,7 @@ public class FirebaseRepository extends ViewModel {
                     isTaskReady.setValue(true);
                 });
     }
+    // get menu from firestore, fill the list MenuList
     public void getMenu() {
         menuList.clear();
         firestore.collection("Dishes").get()
@@ -72,6 +74,7 @@ public class FirebaseRepository extends ViewModel {
                     Log.d("ERROR", error.getMessage());
                 });
     }
+    //get banner discount from firestore and put in list of banners called banner
     public void getBannersFromFirebase(){
         banner.clear();
         firestore.collection("Discounts").get()
@@ -87,12 +90,12 @@ public class FirebaseRepository extends ViewModel {
                     Log.d("ERROR", error.getMessage());
                 });
     }
-
+    // return list of menuModel
     public ArrayList<MenuModel> getMenuList() {
         isTaskReady.setValue(false);
         return menuList;
     }
-
+    //return list of banners
     public ArrayList<BannerModel> getBanner() {
         return banner;
     }

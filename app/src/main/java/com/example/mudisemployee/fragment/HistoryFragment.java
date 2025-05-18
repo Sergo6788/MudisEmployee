@@ -36,7 +36,7 @@ public class HistoryFragment extends Fragment implements OrdersAdapter.OnClickLi
         super.onViewCreated(view, savedInstanceState);
         setAdapter();
     }
-
+    //set OrderAdapter
     private void setAdapter(){
 
        binding.rvOrders.setLayoutManager(new LinearLayoutManager(requireContext()));
